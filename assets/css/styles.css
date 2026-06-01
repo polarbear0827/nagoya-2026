@@ -1,0 +1,1136 @@
+:root {
+  color-scheme: dark;
+  --bg: #080d13;
+  --bg-soft: #101821;
+  --surface: rgba(20, 29, 41, .92);
+  --surface-strong: #172230;
+  --surface-raised: #1c2938;
+  --text: #eff5fb;
+  --muted: #aab7c7;
+  --dim: #758398;
+  --line: rgba(255,255,255,.12);
+  --line-strong: rgba(255,255,255,.22);
+  --gold: #d6b66b;
+  --gold-2: #f5d88f;
+  --teal: #43dbc8;
+  --blue: #6aa6ff;
+  --red: #ff756c;
+  --green: #86df74;
+  --shadow: 0 18px 54px rgba(0,0,0,.34);
+  --radius: 8px;
+  --radius-lg: 10px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3f6f8;
+  --bg-soft: #e8eef3;
+  --surface: rgba(255,255,255,.94);
+  --surface-strong: #ffffff;
+  --surface-raised: #f7fafc;
+  --text: #17202b;
+  --muted: #4d5c6d;
+  --dim: #68798d;
+  --line: rgba(23,32,43,.13);
+  --line-strong: rgba(23,32,43,.24);
+  --gold: #9d6c13;
+  --gold-2: #b57d17;
+  --teal: #087f73;
+  --blue: #1d66d1;
+  --red: #c9362d;
+  --green: #227c30;
+  --shadow: 0 16px 46px rgba(44,60,78,.14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 4%, rgba(67,219,200,.17), transparent 28rem),
+    radial-gradient(circle at 82% 0%, rgba(214,182,107,.16), transparent 28rem),
+    linear-gradient(180deg, var(--bg-soft), var(--bg) 22rem);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.024) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.8), transparent 75%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; }
+
+.app-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 70px;
+  padding: .75rem 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #111827;
+  background: linear-gradient(135deg, var(--gold-2), var(--teal));
+  font: 900 .8rem "Share Tech Mono", monospace;
+  box-shadow: 0 0 0 6px rgba(214,182,107,.12);
+}
+
+.brand strong,
+.brand small {
+  display: block;
+  line-height: 1.25;
+}
+
+.brand small {
+  color: var(--dim);
+  font-size: .78rem;
+  margin-top: .1rem;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .38rem .7rem;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: .83rem;
+  white-space: nowrap;
+}
+
+.sync-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dim);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--dim) 22%, transparent);
+}
+
+.sync-pill[data-state="online"] .sync-dot,
+.sync-pill[data-state="synced"] .sync-dot {
+  background: var(--green);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--green) 22%, transparent);
+}
+
+.sync-pill[data-state="offline"] .sync-dot,
+.sync-pill[data-state="pending"] .sync-dot {
+  background: var(--gold);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 22%, transparent);
+}
+
+.sync-pill[data-state="error"] .sync-dot {
+  background: var(--red);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--red) 22%, transparent);
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+.icon-btn svg,
+.primary-btn svg,
+.ghost-btn svg,
+.tab-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.panel-band {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-lg);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(300px, .78fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-top: 1.25rem;
+  min-height: 430px;
+  padding: clamp(1.25rem, 4vw, 2.4rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .34;
+  background:
+    linear-gradient(90deg, var(--surface) 0%, transparent 74%),
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/AICHI%20SKY%20EXPO.jpg?width=1600") center / cover;
+  z-index: -1;
+}
+
+.hero-copy {
+  align-self: end;
+  max-width: 760px;
+}
+
+.kicker {
+  margin: 0 0 .45rem;
+  color: var(--teal);
+  font: 700 .78rem "Share Tech Mono", monospace;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin: 0;
+  font: 900 clamp(2.2rem, 5.8vw, 5rem)/1.05 "Noto Serif TC", serif;
+  letter-spacing: 0;
+  max-width: 850px;
+}
+
+h2 {
+  margin: 0 0 .55rem;
+  font: 900 clamp(1.65rem, 3.6vw, 2.6rem)/1.22 "Noto Serif TC", serif;
+}
+
+h3 {
+  margin: 0 0 .45rem;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+h4 { margin: 0 0 .2rem; }
+
+.hero-copy p:not(.kicker),
+.section-head p,
+.muted {
+  color: var(--muted);
+}
+
+.hero-copy p:not(.kicker) {
+  max-width: 740px;
+  font-size: 1.03rem;
+}
+
+.hero-actions,
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  align-items: center;
+}
+
+.primary-btn,
+.ghost-btn {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  border-radius: 999px;
+  padding: .55rem .9rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
+  color: #111827;
+}
+
+.ghost-btn {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface-raised) 86%, transparent);
+  border-color: var(--line);
+}
+
+.primary-btn:hover,
+.ghost-btn:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.hero-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: .8rem;
+}
+
+.quick-card,
+.card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,.14);
+}
+
+.quick-card {
+  padding: 1rem;
+}
+
+.quick-card span,
+.card-label {
+  display: block;
+  margin-bottom: .28rem;
+  color: var(--dim);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.quick-card strong {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.quick-card small {
+  display: block;
+  color: var(--muted);
+  margin-top: .25rem;
+}
+
+.quick-card.accent {
+  border-color: color-mix(in srgb, var(--gold) 54%, var(--line));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--gold) 14%, var(--surface)), var(--surface));
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .8rem;
+}
+
+.tabs {
+  position: sticky;
+  top: 70px;
+  z-index: 20;
+  margin: 1rem 0 0;
+  display: flex;
+  gap: .35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: .4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn,
+.tool-tab {
+  appearance: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .38rem;
+  flex: 0 0 auto;
+  min-height: 42px;
+  border-radius: 999px;
+  padding: .45rem .78rem;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: .92rem;
+}
+
+.tab-btn.active,
+.tool-tab.active,
+.tab-btn:hover,
+.tool-tab:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.tab-panel {
+  display: none;
+  animation: panelIn .24s ease-out;
+}
+
+.tab-panel.active { display: block; }
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-head {
+  margin: 3.3rem 0 1.2rem;
+  max-width: 780px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 1rem;
+}
+
+.card {
+  padding: 1.1rem;
+}
+
+.identity-card,
+.match-card,
+.settlement-summary {
+  min-height: 260px;
+}
+
+.countdown-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countdown {
+  font: 900 clamp(2rem, 6vw, 4rem)/1 "Share Tech Mono", monospace;
+  color: var(--gold-2);
+}
+
+.field {
+  display: grid;
+  gap: .35rem;
+  margin: .8rem 0;
+}
+
+.field span,
+.split-box legend {
+  color: var(--muted);
+  font-size: .86rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .68rem .75rem;
+  outline: none;
+}
+
+textarea { resize: vertical; }
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 20%, transparent);
+}
+
+.member-picker,
+#splitMembers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .5rem;
+}
+
+.member-option,
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 42px;
+  padding: .55rem .65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  cursor: pointer;
+  color: var(--text);
+}
+
+.member-option input,
+.check-item input {
+  width: auto;
+  accent-color: var(--teal);
+}
+
+.info-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+  margin: 1rem 0;
+}
+
+.info-list div,
+.summary-numbers div,
+.stat-grid div,
+.budget-total {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  padding: .75rem;
+}
+
+.info-list dt {
+  color: var(--dim);
+  font-size: .78rem;
+}
+
+.info-list dd {
+  margin: .15rem 0 0;
+  font-weight: 900;
+}
+
+.summary-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+}
+
+.summary-numbers span,
+.budget-total span {
+  display: block;
+  color: var(--dim);
+  font-size: .82rem;
+}
+
+.summary-numbers strong,
+.budget-total strong {
+  display: block;
+  font: 900 1.3rem "Share Tech Mono", monospace;
+  color: var(--gold-2);
+}
+
+.balance-list,
+.settlement-list,
+.expense-list {
+  display: grid;
+  gap: .55rem;
+  margin-top: .85rem;
+}
+
+.balance-pill,
+.settlement-item {
+  display: flex;
+  justify-content: space-between;
+  gap: .8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .65rem .75rem;
+  background: var(--surface-raised);
+}
+
+.positive { color: var(--green); }
+.negative { color: var(--red); }
+.neutral { color: var(--muted); }
+
+.timeline,
+.step-grid,
+.rec-grid,
+.memo-grid,
+.safety-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.timeline-item time {
+  color: var(--gold-2);
+  font: 800 .95rem "Share Tech Mono", monospace;
+}
+
+.timeline-item p,
+.step-card p,
+.rec-card p,
+.venue-layout p,
+.emergency-card p,
+.phrase-card p,
+.expense-item p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.step-grid,
+.rec-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.step-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1rem;
+}
+
+.step-card span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin-bottom: .8rem;
+  color: #111827;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  font: 900 .86rem "Share Tech Mono", monospace;
+}
+
+.source-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1rem;
+}
+
+.source-chip {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: .45rem .75rem;
+}
+
+.itinerary {
+  display: grid;
+  gap: 1rem;
+}
+
+.day-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.day-header {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: .85rem;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.day-num {
+  color: var(--gold-2);
+  font: 900 1.35rem "Share Tech Mono", monospace;
+}
+
+.day-sub {
+  color: var(--dim);
+  font-size: .86rem;
+}
+
+.day-body {
+  display: none;
+  padding: 0 1rem 1rem;
+}
+
+.day-card.open .day-body { display: block; }
+
+.activity-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .65rem;
+}
+
+.activity-list li {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: .75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  padding: .75rem;
+}
+
+.activity-time {
+  color: var(--teal);
+  font: 800 .82rem "Share Tech Mono", monospace;
+}
+
+.activity-title {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-weight: 900;
+}
+
+.day-actions {
+  margin-top: .8rem;
+}
+
+.featured {
+  border-color: color-mix(in srgb, var(--gold) 50%, var(--line));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--gold) 12%, var(--surface)), var(--surface));
+}
+
+.rec-card strong {
+  display: block;
+  margin-top: .75rem;
+  color: var(--gold-2);
+}
+
+.venue-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+  gap: 1rem;
+}
+
+.venue-photo {
+  min-height: 360px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.venue-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.venue-photo figcaption {
+  position: absolute;
+  right: .6rem;
+  bottom: .6rem;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  font-size: .72rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .65rem;
+  margin: 1rem 0;
+}
+
+.stat-grid strong {
+  display: block;
+  color: var(--gold-2);
+  font: 900 1.35rem "Share Tech Mono", monospace;
+}
+
+.stat-grid span {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.tool-tabs {
+  display: inline-flex;
+  gap: .3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .35rem;
+  background: var(--surface);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tool-panel { display: none; margin-top: 1rem; }
+.tool-panel.active { display: block; }
+
+.tool-grid,
+.expense-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 1rem;
+}
+
+.exchange-grid,
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.quick-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-top: .75rem;
+}
+
+.quick-amounts button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-raised);
+  color: var(--text);
+  padding: .4rem .6rem;
+  cursor: pointer;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-card strong {
+  font: 900 clamp(1.8rem, 4vw, 3.5rem)/1.05 "Share Tech Mono", monospace;
+  color: var(--gold-2);
+}
+
+.result-card span {
+  color: var(--muted);
+  margin-top: .5rem;
+}
+
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.budget-total {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem;
+  align-items: center;
+}
+
+.expense-layout {
+  align-items: start;
+}
+
+.expense-side {
+  display: grid;
+  gap: 1rem;
+}
+
+.split-box {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .75rem;
+  margin: .8rem 0;
+}
+
+.expense-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .8rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  padding: .75rem;
+}
+
+.expense-actions {
+  display: flex;
+  gap: .35rem;
+}
+
+.expense-actions .icon-btn {
+  width: 34px;
+  height: 34px;
+}
+
+.file-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-btn input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.memo-grid,
+.safety-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+}
+
+.progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.progress-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--surface-raised);
+  overflow: hidden;
+  margin: .7rem 0 1rem;
+}
+
+.progress-bar span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  transition: width .25s ease;
+}
+
+.check-section {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.check-section h4 {
+  color: var(--gold-2);
+  margin-bottom: .6rem;
+}
+
+.check-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .5rem;
+}
+
+.check-item.done {
+  color: var(--dim);
+  text-decoration: line-through;
+}
+
+.roles-list {
+  display: grid;
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+
+.role-item,
+.phrase-card,
+.saved-info {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .75rem;
+  background: var(--surface-raised);
+}
+
+.role-item strong {
+  display: block;
+}
+
+.role-item span {
+  color: var(--muted);
+}
+
+.emergency-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .65rem;
+  margin: .85rem 0;
+}
+
+.emergency-numbers a {
+  display: grid;
+  gap: .2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .8rem;
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.emergency-numbers strong {
+  color: var(--red);
+  font: 900 2rem "Share Tech Mono", monospace;
+}
+
+.phrase-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.phrase-card .jp {
+  color: var(--gold-2);
+  font-weight: 900;
+}
+
+.phrase-card .romaji {
+  color: var(--teal);
+  font-size: .86rem;
+}
+
+.empty-state {
+  color: var(--muted);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .overview-grid,
+  .venue-layout,
+  .tool-grid,
+  .expense-layout,
+  .memo-grid,
+  .safety-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-grid,
+  .rec-grid,
+  .phrase-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .budget-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .app-shell { padding-inline: .75rem; }
+  .topbar { min-height: 62px; }
+  .brand small { display: none; }
+  .sync-pill { max-width: 138px; overflow: hidden; }
+  .hero { min-height: auto; }
+  .mini-grid,
+  .info-list,
+  .summary-numbers,
+  .member-picker,
+  #splitMembers,
+  .exchange-grid,
+  .form-grid,
+  .budget-total,
+  .check-list,
+  .emergency-numbers,
+  .step-grid,
+  .rec-grid,
+  .phrase-list {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    top: 62px;
+    border-radius: var(--radius);
+  }
+
+  .tab-btn {
+    min-height: 40px;
+    font-size: .86rem;
+  }
+
+  .timeline-item,
+  .activity-list li,
+  .day-header {
+    grid-template-columns: 1fr;
+  }
+
+  .day-header {
+    gap: .35rem;
+  }
+
+  .venue-photo { min-height: 240px; }
+  .button-row .primary-btn,
+  .button-row .ghost-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026 愛知名古屋亞運英雄聯盟觀賽攻略，包含購票、五天四夜行程、機票住宿、場館交通與重要日期。">
+  <title>2026 名古屋亞運英雄聯盟觀賽攻略</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d12;
+      --bg-soft: #101720;
+      --panel: #151d28;
+      --panel-2: #1b2431;
+      --line: rgba(255,255,255,.12);
+      --line-strong: rgba(255,255,255,.2);
+      --text: #edf2f7;
+      --muted: #a6b1c2;
+      --dim: #718096;
+      --gold: #d4b26a;
+      --gold-2: #f0d58d;
+      --teal: #3dd7c2;
+      --blue: #5a9df8;
+      --red: #ff7468;
+      --green: #7ed957;
+      --shadow: 0 18px 50px rgba(0,0,0,.32);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", system-ui, sans-serif;
+      background:
+        linear-gradient(180deg, rgba(9,13,18,.8), var(--bg) 34%),
+        radial-gradient(circle at 18% 10%, rgba(61,215,194,.16), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(212,178,106,.14), transparent 26%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: #fff; }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      padding: 6rem 1.25rem 3rem;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(90deg, rgba(9,13,18,.86), rgba(9,13,18,.56) 42%, rgba(9,13,18,.82)),
+        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/AICHI%20SKY%20EXPO.jpg?width=1800");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.92) brightness(.68);
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 38%;
+      z-index: -1;
+      background: linear-gradient(180deg, transparent, var(--bg));
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: "Share Tech Mono", monospace;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-size: .78rem;
+      margin: 0 0 .8rem;
+    }
+
+    h1 {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(2.65rem, 8vw, 6.2rem);
+      line-height: 1.02;
+      margin: 0;
+      max-width: 920px;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      color: var(--gold-2);
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 1.25rem 0 1.6rem;
+      color: #d5dce7;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+    }
+
+    .hero-link,
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: .5rem .9rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-size: .9rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-link.primary {
+      color: #111827;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      font-weight: 800;
+    }
+
+    .quick-strip {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: -2rem auto 0;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .quick-item {
+      background: rgba(21,29,40,.94);
+      padding: 1rem;
+      min-width: 0;
+    }
+
+    .quick-label {
+      color: var(--dim);
+      font-size: .76rem;
+      margin-bottom: .18rem;
+    }
+
+    .quick-value {
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9,13,18,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .tabs {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: flex;
+      gap: .2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 1rem;
+    }
+
+    .tabs::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      appearance: none;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 1rem .85rem .86rem;
+      font: inherit;
+      font-size: .9rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: var(--gold-2);
+      border-bottom-color: var(--gold);
+    }
+
+    main { min-height: 70vh; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .section {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 4rem 1.25rem;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      font-family: "Share Tech Mono", monospace;
+      color: var(--teal);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-size: .76rem;
+      margin: 0 0 .3rem;
+    }
+
+    h2 {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(1.7rem, 4vw, 2.65rem);
+      line-height: 1.2;
+      margin: 0 0 .5rem;
+      letter-spacing: 0;
+    }
+
+    h2 em {
+      color: var(--gold-2);
+      font-style: normal;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .alert {
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      background: rgba(212,178,106,.08);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      color: #e8ddbd;
+      margin-bottom: 1.25rem;
+    }
+
+    .alert.info {
+      border-left-color: var(--teal);
+      background: rgba(61,215,194,.07);
+      color: #c7fff4;
+    }
+
+    .timeline {
+      display: grid;
+      gap: .85rem;
+      position: relative;
+    }
+
+    .tl-item,
+    .step,
+    .rec-card,
+    .tip-card,
+    .venue-card,
+    .source-card,
+    .day-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(27,36,49,.94), rgba(21,29,40,.94));
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 158px minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1.1rem;
+    }
+
+    .tl-date {
+      font-family: "Share Tech Mono", monospace;
+      color: var(--gold-2);
+      font-size: .95rem;
+      line-height: 1.45;
+    }
+
+    .tl-title {
+      margin: 0 0 .2rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .tl-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: .65rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: .18rem .55rem;
+      color: var(--muted);
+      font-size: .78rem;
+      background: rgba(255,255,255,.04);
+    }
+
+    .badge.gold { color: var(--gold-2); border-color: rgba(212,178,106,.38); }
+    .badge.teal { color: var(--teal); border-color: rgba(61,215,194,.38); }
+    .badge.red { color: var(--red); border-color: rgba(255,116,104,.38); }
+    .badge.green { color: var(--green); border-color: rgba(126,217,87,.38); }
+
+    .steps {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: .95rem;
+      padding: 1.05rem;
+    }
+
+    .step-num {
+      font-family: "Share Tech Mono", monospace;
+      color: #111827;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .step h3,
+    .rec-title,
+    .tip-title,
+    .venue-title {
+      margin: 0 0 .35rem;
+      color: #fff;
+      font-size: 1.03rem;
+      line-height: 1.45;
+    }
+
+    .step p,
+    .rec-detail,
+    .tip-text,
+    .venue-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .itinerary {
+      display: grid;
+      gap: .95rem;
+    }
+
+    .day-card {
+      overflow: hidden;
+    }
+
+    .day-header {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 34px;
+      gap: .75rem;
+      align-items: center;
+      padding: 1rem;
+      cursor: pointer;
+    }
+
+    .day-num {
+      font-family: "Share Tech Mono", monospace;
+      color: var(--gold-2);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .day-title {
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .day-sub {
+      color: var(--dim);
+      font-size: .86rem;
+      margin-top: .1rem;
+    }
+
+    .day-toggle {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      transition: transform .2s;
+    }
+
+    .day-card.open .day-toggle { transform: rotate(45deg); }
+    .day-body { display: none; padding: 0 1rem 1rem 1rem; }
+    .day-card.open .day-body { display: block; }
+
+    .activity {
+      list-style: none;
+      display: grid;
+      gap: .65rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .activity li {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: .8rem;
+      padding: .75rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.035);
+    }
+
+    .time {
+      color: var(--teal);
+      font-family: "Share Tech Mono", monospace;
+      font-size: .82rem;
+    }
+
+    .activity strong {
+      display: block;
+      margin-bottom: .12rem;
+      line-height: 1.45;
+    }
+
+    .activity span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .rec-grid,
+    .tips-grid,
+    .venue-grid,
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .rec-grid.two,
+    .venue-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rec-card,
+    .tip-card,
+    .venue-card,
+    .source-card {
+      padding: 1.1rem;
+    }
+
+    .rec-card.featured {
+      border-color: rgba(212,178,106,.5);
+      background: linear-gradient(180deg, rgba(47,39,20,.75), rgba(21,29,40,.96));
+    }
+
+    .rec-type {
+      color: var(--teal);
+      font-size: .78rem;
+      font-family: "Share Tech Mono", monospace;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+
+    .rec-sub {
+      color: var(--dim);
+      font-size: .85rem;
+      margin-bottom: .7rem;
+    }
+
+    .price {
+      margin-top: .85rem;
+      color: var(--gold-2);
+      font-weight: 900;
+    }
+
+    .price small {
+      color: var(--dim);
+      font-weight: 500;
+    }
+
+    .venue-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap: 1rem;
+      align-items: stretch;
+      margin-bottom: 1rem;
+    }
+
+    .venue-photo {
+      min-height: 320px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+
+    .venue-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.95);
+    }
+
+    .photo-credit {
+      position: absolute;
+      right: .65rem;
+      bottom: .55rem;
+      color: rgba(255,255,255,.76);
+      background: rgba(0,0,0,.5);
+      border-radius: 999px;
+      padding: .2rem .55rem;
+      font-size: .72rem;
+    }
+
+    .venue-summary {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(21,29,40,.94);
+      padding: 1.15rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .7rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: var(--radius);
+      padding: .75rem;
+      background: rgba(255,255,255,.035);
+    }
+
+    .stat b {
+      display: block;
+      color: var(--gold-2);
+      font-size: 1.35rem;
+      font-family: "Share Tech Mono", monospace;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .checklist {
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .55rem;
+    }
+
+    .checklist li {
+      border-left: 2px solid var(--teal);
+      background: rgba(61,215,194,.055);
+      padding: .5rem .75rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--dim);
+      text-align: center;
+      padding: 2rem 1.25rem;
+      font-size: .86rem;
+    }
+
+    footer strong {
+      color: var(--gold-2);
+    }
+
+    @media (max-width: 920px) {
+      .quick-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .rec-grid,
+      .tips-grid,
+      .source-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .venue-hero { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 72vh; padding-top: 4rem; }
+      .quick-strip,
+      .rec-grid,
+      .rec-grid.two,
+      .tips-grid,
+      .venue-grid,
+      .source-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 1fr; gap: .45rem; }
+      .step { grid-template-columns: 44px minmax(0, 1fr); }
+      .step-num { width: 36px; height: 36px; font-size: .82rem; }
+      .day-header { grid-template-columns: 42px minmax(0, 1fr) 30px; }
+      .activity li { grid-template-columns: 1fr; gap: .2rem; }
+      .section { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Aichi Nagoya 2026 League of Legends Travel Guide</p>
+      <h1>名古屋亞運<br><span>英雄聯盟</span><br>觀賽攻略</h1>
+      <p class="hero-copy">為了之後去日本看 2026 愛知名古屋亞運 LoL 電競項目準備的行動頁。重點是先搶票，再鎖住宿，最後依賽程微調五天四夜。</p>
+      <div class="hero-actions">
+        <a class="hero-link primary" href="#tickets">看購票攻略</a>
+        <a class="hero-link" href="#itinerary">看五天四夜</a>
+        <a class="hero-link" href="https://lp-ag.tickets-aichi-nagoya2026.org/index_en.html" target="_blank" rel="noreferrer">官方售票資訊</a>
+      </div>
+    </div>
+  </header>
+
+  <aside class="quick-strip" aria-label="重點摘要">
+    <div class="quick-item">
+      <div class="quick-label">亞運期間</div>
+      <div class="quick-value">2026/09/19 至 10/04</div>
+    </div>
+    <div class="quick-item">
+      <div class="quick-label">一般販售</div>
+      <div class="quick-value">2026/06/30 17:00 起</div>
+    </div>
+    <div class="quick-item">
+      <div class="quick-label">LoL 場次</div>
+      <div class="quick-value">2026/10/02 09:00</div>
+    </div>
+    <div class="quick-item">
+      <div class="quick-label">場館</div>
+      <div class="quick-value">Aichi Sky Expo Hall D</div>
+    </div>
+  </aside>
+
+  <nav class="nav-wrap" aria-label="頁面分頁">
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="dates" role="tab" aria-selected="true">重要日期</button>
+      <button class="tab-btn" data-tab="tickets" role="tab" aria-selected="false">購票攻略</button>
+      <button class="tab-btn" data-tab="itinerary" role="tab" aria-selected="false">五天四夜</button>
+      <button class="tab-btn" data-tab="travel" role="tab" aria-selected="false">機票住宿</button>
+      <button class="tab-btn" data-tab="venue" role="tab" aria-selected="false">場館交通</button>
+      <button class="tab-btn" data-tab="tips" role="tab" aria-selected="false">其他提醒</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="panel active" id="panel-dates" role="tabpanel">
+      <div class="section">
+        <div class="section-head">
+          <p class="section-kicker">Timeline</p>
+          <h2>先把<em>日期風險</em>控住</h2>
+          <p class="lead">以下以 2026/06/01 查到的官方資訊整理。票券與賽程仍可能因營運調整變更，出發前要再回官方頁確認一次。</p>
+        </div>
+
+        <div class="alert">
+          LoL 已出現在官方 Ticketing Guide：2026/10/02 09:00，Aichi Sky Expo Hall D，票碼 ELS12。票價列為 A 區 12,000 日圓、B 區 9,000 日圓，兒童 4,500 日圓，身障 8,700 日圓，輪椅 9,000 日圓。
+        </div>
+
+        <div class="timeline">
+          <article class="tl-item">
+            <div class="tl-date">2026/03/12 至 03/31</div>
+            <div>
+              <p class="tl-title">第二輪優先售票已結束</p>
+              <p class="tl-desc">官方英文新聞顯示第二輪優先售票於 3 月 12 日 17:00 開始、3 月 31 日 23:59 結束。這段已經錯過，現在重點轉向一般販售。</p>
+              <div class="badge-row"><span class="badge">已結束</span><span class="badge">參考資訊</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item">
+            <div class="tl-date">2026/06/30 17:00</div>
+            <div>
+              <p class="tl-title">全競技一般販售開始</p>
+              <p class="tl-desc">官方 5 月 28 日公告指出，開閉幕式與全競技的一般販售從 6 月 30 日 17:00 開始，對象不限，包含海外販售，採先到先得。</p>
+              <div class="badge-row"><span class="badge gold">最重要</span><span class="badge red">先到先得</span><span class="badge teal">需應援 ID</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item">
+            <div class="tl-date">2026/09/19 至 10/04</div>
+            <div>
+              <p class="tl-title">第 20 屆愛知名古屋亞運</p>
+              <p class="tl-desc">整體賽會期間為 9 月 19 日至 10 月 4 日。若只為 LoL 出發，不需要覆蓋完整賽期，建議把旅程壓在 LoL 前後。</p>
+              <div class="badge-row"><span class="badge">整體賽期</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item">
+            <div class="tl-date">2026/09/23 起</div>
+            <div>
+              <p class="tl-title">電競賽事於 Aichi Sky Expo 展開</p>
+              <p class="tl-desc">官方售票指南列出多個電競項目自 9 月 23 日起陸續進行。LoL 不是第一天，適合用較短行程集中火力。</p>
+              <div class="badge-row"><span class="badge teal">Hall D</span><span class="badge">電競檔期</span></div>
+            </div>
+          </article>
+
+          <article class="tl-item">
+            <div class="tl-date">2026/10/02 09:00</div>
+            <div>
+              <p class="tl-title">英雄聯盟 Elimination stage</p>
+              <p class="tl-desc">目前官方 Ticketing Guide 已列出 LoL 場次。若後續官方公布更細分的對戰表，再把行程中的觀賽日微調。</p>
+              <div class="badge-row"><span class="badge green">LoL 目標日</span><span class="badge gold">ELS12</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-tickets" role="tabpanel">
+      <div class="section" id="tickets">
+        <div class="section-head">
+          <p class="section-kicker">Ticket Strategy</p>
+          <h2>LoL <em>購票攻略</em></h2>
+          <p class="lead">你的目標不是慢慢研究，是在一般販售開放前把帳號、付款、場次、住宿備案都準備好。開賣當天只做一件事：買到 ELS12。</p>
+        </div>
+
+        <div class="alert info">
+          官方公告寫明一般販售需免費註冊「應援 ID」。非官方管道購入的票券可能無法入場，轉售平台要避開。
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h3>先註冊應援 ID</h3>
+              <p>到官方售票資訊網站完成免費註冊。一般販售在官方網站購買時需要此 ID，建議用常看的 Email，並把官方信件加入安全寄件者。</p>
+              <div class="badge-row"><span class="badge teal">必做</span><span class="badge">免費</span></div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h3>鎖定場次 ELS12</h3>
+              <p>目前 LoL 場次資訊為 2026/10/02 09:00、Aichi Sky Expo Hall D、League of Legends Elimination stage、Ticket Code ELS12。先把這些字串存在手機備忘錄，開賣時可快速搜尋。</p>
+              <div class="badge-row"><span class="badge gold">ELS12</span><span class="badge">10/02 09:00</span></div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h3>確認票價與座位策略</h3>
+              <p>官方指南列出 A 區 12,000 日圓、B 區 9,000 日圓。若差額可接受，優先選 A 區；若 A 區售罄，立刻改 B 區，不要在座位選擇頁猶豫太久。</p>
+              <div class="badge-row"><span class="badge gold">A 區優先</span><span class="badge teal">B 區備援</span></div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-num">04</div>
+            <div>
+              <h3>付款工具提前測試</h3>
+              <p>準備 Visa 或 Mastercard，確認海外交易與 3D Secure 驗證可用。建議至少兩張卡，一張主卡一張備援，避免刷卡驗證卡住。</p>
+              <div class="badge-row"><span class="badge">Visa</span><span class="badge">Mastercard</span><span class="badge red">海外交易開啟</span></div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-num">05</div>
+            <div>
+              <h3>開賣日作戰流程</h3>
+              <p>台灣時間 2026/06/30 16:30 前登入，17:00 準時刷新。先搜尋 League of Legends 或 ELS12，選票、付款、截圖保存訂單。若排隊或失敗，用另一個瀏覽器或手機網路備援。</p>
+              <div class="badge-row"><span class="badge red">2026/06/30</span><span class="badge gold">台灣時間同為 17:00 前準備</span></div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-num">06</div>
+            <div>
+              <h3>買到票後再定不可退項目</h3>
+              <p>住宿可以先訂可免費取消方案，機票等 LoL 票券確認後再出手。若票券沒搶到，行程仍可改成看其他電競項目或一般亞運賽事。</p>
+              <div class="badge-row"><span class="badge teal">可取消住宿優先</span><span class="badge">保留彈性</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-itinerary" role="tabpanel">
+      <div class="section" id="itinerary">
+        <div class="section-head">
+          <p class="section-kicker">5D4N Itinerary</p>
+          <h2>通用版<em>五天四夜</em></h2>
+          <p class="lead">日期還不確定時，用「D3 或 D4 是 LoL 觀賽日」來設計。若依目前官方場次，最直覺是 2026/09/30 至 10/04 或 2026/10/01 至 10/05。</p>
+        </div>
+
+        <div class="alert">
+          推薦版本：D1 抵達名古屋，D2 市區與補給，D3 看其他電競或場館場勘，D4 看 LoL，D5 回台。若最後 LoL 確認只有 10/02 一天，就把 D4 固定為 10/02。
+        </div>
+
+        <div class="itinerary">
+          <article class="day-card open">
+            <div class="day-header">
+              <div class="day-num">D1</div>
+              <div>
+                <div class="day-title">抵達名古屋，住進交通核心</div>
+                <div class="day-sub">台北至中部國際機場，名鐵進市區，晚上輕鬆吃名古屋飯</div>
+              </div>
+              <div class="day-toggle">+</div>
+            </div>
+            <div class="day-body">
+              <ul class="activity">
+                <li><div class="time">上午</div><div><strong>飛往 NGO 中部國際機場</strong><span>優先選直飛，減少轉機延誤與行李風險。</span></div></li>
+                <li><div class="time">下午</div><div><strong>名鐵進名古屋站或榮</strong><span>住名古屋站最穩，往機場、場館、購物都方便。</span></div></li>
+                <li><div class="time">晚上</div><div><strong>味噌豬排、手羽先、台灣拉麵</strong><span>第一晚不排太硬，調整體力與網路。</span></div></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <div class="day-header">
+              <div class="day-num">D2</div>
+              <div>
+                <div class="day-title">名古屋市區日，順便完成補給</div>
+                <div class="day-sub">名古屋城、榮、Oasis 21、藥妝與便利商店補貨</div>
+              </div>
+              <div class="day-toggle">+</div>
+            </div>
+            <div class="day-body">
+              <ul class="activity">
+                <li><div class="time">09:30</div><div><strong>名古屋城或熱田神宮</strong><span>安排一個主要景點即可，避免隔天觀賽疲累。</span></div></li>
+                <li><div class="time">14:00</div><div><strong>榮商圈與 Oasis 21</strong><span>買行動電源、雨具、濕紙巾、喉糖。</span></div></li>
+                <li><div class="time">晚上</div><div><strong>確認票券、交通、天氣</strong><span>把場館地址、電子票、護照影本都離線保存。</span></div></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <div class="day-header">
+              <div class="day-num">D3</div>
+              <div>
+                <div class="day-title">電競暖身或 Aichi Sky Expo 場勘</div>
+                <div class="day-sub">可以看其他電競項目，或先熟悉名鐵到場館的動線</div>
+              </div>
+              <div class="day-toggle">+</div>
+            </div>
+            <div class="day-body">
+              <ul class="activity">
+                <li><div class="time">上午</div><div><strong>名鐵搭到中部國際機場</strong><span>熟悉月台、車種、轉乘時間，隔天就不會慌。</span></div></li>
+                <li><div class="time">中午</div><div><strong>確認 Aichi Sky Expo 入口</strong><span>場館與機場相鄰，但正式安檢入口仍以現場指示為準。</span></div></li>
+                <li><div class="time">下午</div><div><strong>看其他電競項目或回市區休息</strong><span>若隔天是 LoL，這天不要排遠距離行程。</span></div></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <div class="day-header">
+              <div class="day-num">D4</div>
+              <div>
+                <div class="day-title">英雄聯盟觀賽日</div>
+                <div class="day-sub">若依目前官方場次，目標是 2026/10/02 09:00 ELS12</div>
+              </div>
+              <div class="day-toggle">+</div>
+            </div>
+            <div class="day-body">
+              <ul class="activity">
+                <li><div class="time">06:30</div><div><strong>早餐與出門</strong><span>09:00 開賽的話，建議至少提前 90 至 120 分鐘到場。</span></div></li>
+                <li><div class="time">08:00</div><div><strong>Aichi Sky Expo Hall D 入場</strong><span>準備護照、電子票、行動電源、少量現金。</span></div></li>
+                <li><div class="time">09:00</div><div><strong>League of Legends Elimination stage</strong><span>專心看比賽，拍照錄影規範以現場公告為準。</span></div></li>
+                <li><div class="time">賽後</div><div><strong>Centrair 或名古屋市區慶功</strong><span>若隔天回台，晚上不要排太晚。</span></div></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="day-card">
+            <div class="day-header">
+              <div class="day-num">D5</div>
+              <div>
+                <div class="day-title">返台或加碼名古屋近郊</div>
+                <div class="day-sub">視班機時間安排常滑、機場商店或市區最後採買</div>
+              </div>
+              <div class="day-toggle">+</div>
+            </div>
+            <div class="day-body">
+              <ul class="activity">
+                <li><div class="time">上午</div><div><strong>最後採買</strong><span>名古屋站、榮，或直接去 Centrair 免稅店。</span></div></li>
+                <li><div class="time">下午</div><div><strong>前往機場</strong><span>國際線建議預留 2.5 至 3 小時，亞運期間抓更寬。</span></div></li>
+                <li><div class="time">晚上</div><div><strong>返回台灣</strong><span>回家整理照片與戰利品。</span></div></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-travel" role="tabpanel">
+      <div class="section">
+        <div class="section-head">
+          <p class="section-kicker">Flights and Hotels</p>
+          <h2>機票住宿<em>推薦策略</em></h2>
+          <p class="lead">不要只看便宜。這趟的核心價值是準時抵達 LoL 場館，所以交通穩定性比省一點點錢更重要。</p>
+        </div>
+
+        <h3 class="section-kicker">Flights</h3>
+        <div class="rec-grid">
+          <article class="rec-card featured">
+            <div class="rec-type">首選</div>
+            <h3 class="rec-title">台北 TPE 直飛名古屋 NGO</h3>
+            <div class="rec-sub">EVA、華航、星宇或日系航空依實際班表比價</div>
+            <p class="rec-detail">適合主行程。直飛降低轉機變數，觀賽日前一天抵達也比較安心。票價合理時，優先買含托運與可改期條件較好的票。</p>
+            <div class="price">NT$12,000 至 20,000 <small>常見浮動區間，亞運期間可能更高</small></div>
+          </article>
+
+          <article class="rec-card">
+            <div class="rec-type">省預算</div>
+            <h3 class="rec-title">廉航直飛或大阪進出</h3>
+            <div class="rec-sub">Peach、Jetstar 或關西機場轉新幹線</div>
+            <p class="rec-detail">若名古屋直飛太貴，可比大阪進出加新幹線成本。但觀賽前一天不要安排長距離轉移，風險偏高。</p>
+            <div class="price">NT$7,000 起 <small>不含行李、座位、交通補差</small></div>
+          </article>
+
+          <article class="rec-card">
+            <div class="rec-type">訂票時機</div>
+            <h3 class="rec-title">票券確認後買機票</h3>
+            <div class="rec-sub">住宿可先可退，機票等 LoL 票到手</div>
+            <p class="rec-detail">如果 6 月 30 日順利買到 ELS12，就能把行程鎖在 10 月 2 日前後。若沒買到，可改看其他電競或取消可退住宿。</p>
+            <div class="price">重點 <small>先搶票，再買不可退項目</small></div>
+          </article>
+        </div>
+
+        <h3 class="section-kicker" style="margin-top:2.4rem">Hotels</h3>
+        <div class="rec-grid two">
+          <article class="rec-card featured">
+            <div class="rec-type">最穩</div>
+            <h3 class="rec-title">名古屋站周邊</h3>
+            <div class="rec-sub">JR Gate Tower、Marriott Associa、JR Inn、Meitetsu Grand 一帶</div>
+            <p class="rec-detail">名鐵去中部國際機場方便，也容易搭 JR、地鐵與新幹線。第一次去名古屋，住這區最不容易出錯。</p>
+            <div class="price">每晚約 ¥18,000 至 ¥45,000 <small>亞運期間可能上修</small></div>
+          </article>
+
+          <article class="rec-card">
+            <div class="rec-type">生活機能</div>
+            <h3 class="rec-title">榮、伏見、丸之內</h3>
+            <div class="rec-sub">餐廳、購物、夜間活動較集中</div>
+            <p class="rec-detail">比名古屋站更有城市感，飯店選擇多。缺點是去機場通常要多一次地鐵或計程車銜接。</p>
+            <div class="price">每晚約 ¥14,000 至 ¥32,000 <small>適合多住幾晚</small></div>
+          </article>
+
+          <article class="rec-card">
+            <div class="rec-type">觀賽優先</div>
+            <h3 class="rec-title">Centrair 機場周邊</h3>
+            <div class="rec-sub">TUBE Sq、Centrair Hotel、Toyoko Inn 中部國際空港</div>
+            <p class="rec-detail">離 Aichi Sky Expo 最近。適合 LoL 前一晚或比賽當晚入住，缺點是晚上回市區玩比較不方便。</p>
+            <div class="price">每晚約 ¥9,000 至 ¥24,000 <small>早訂差很多</small></div>
+          </article>
+
+          <article class="rec-card">
+            <div class="rec-type">備案</div>
+            <h3 class="rec-title">金山或常滑</h3>
+            <div class="rec-sub">金山交通好，常滑靠近機場</div>
+            <p class="rec-detail">如果名古屋站與榮漲太多，金山是很實用的交通備案。常滑則適合壓低隔天到場時間。</p>
+            <div class="price">每晚約 ¥10,000 至 ¥25,000 <small>看房源狀況</small></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-venue" role="tabpanel">
+      <div class="section">
+        <div class="section-head">
+          <p class="section-kicker">Venue and Access</p>
+          <h2>Aichi Sky Expo <em>場館交通</em></h2>
+          <p class="lead">電競項目官方場館是 Aichi Sky Expo。它在中部國際機場島上，從名古屋市區搭名鐵到機場，再步行到展覽場。</p>
+        </div>
+
+        <div class="venue-hero">
+          <figure class="venue-photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/AICHI%20SKY%20EXPO.jpg?width=1400" alt="Aichi Sky Expo 建築外觀">
+            <figcaption class="photo-credit">Image: Wikimedia Commons</figcaption>
+          </figure>
+          <div class="venue-summary">
+            <h3 class="venue-title">Aichi Sky Expo Hall D</h3>
+            <p class="venue-text">官方 Sports Program 頁面列出 Esports 場館為 Aichi Sky Expo，Ticketing Guide 進一步標示電競在 Hall D。地址可抓 5-10-1 Centrair, Tokoname, Aichi。</p>
+            <div class="stat-grid">
+              <div class="stat"><b>Hall D</b><span>電競場館</span></div>
+              <div class="stat"><b>09:00</b><span>LoL 開始時間</span></div>
+              <div class="stat"><b>約 28 分</b><span>名鐵名古屋至機場最快車程參考</span></div>
+              <div class="stat"><b>步行</b><span>機場站至展覽場</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="venue-grid">
+          <article class="venue-card">
+            <h3 class="venue-title">從名古屋站出發</h3>
+            <p class="venue-text">名鐵名古屋站搭往中部國際機場方向列車，到中部國際機場站後依 Aichi Sky Expo 指標步行。觀賽日建議提前 90 至 120 分鐘抵達，避免安檢與人潮。</p>
+          </article>
+
+          <article class="venue-card">
+            <h3 class="venue-title">從榮或伏見出發</h3>
+            <p class="venue-text">先搭地鐵到名古屋站或金山站，再轉名鐵。早上場次要把地鐵轉乘與月台找路時間算進去。</p>
+          </article>
+
+          <article class="venue-card">
+            <h3 class="venue-title">觀賽日攜帶</h3>
+            <p class="venue-text">護照、電子票、行動電源、輕便外套、少量現金、信用卡、可裝水的瓶子。大型行李留飯店，不要帶去場館。</p>
+          </article>
+
+          <article class="venue-card">
+            <h3 class="venue-title">散場策略</h3>
+            <p class="venue-text">若當天人潮集中，先在 Centrair 吃飯或逛商店，錯開尖峰再回市區。若隔天早班機，住機場周邊會很舒服。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-tips" role="tabpanel">
+      <div class="section">
+        <div class="section-head">
+          <p class="section-kicker">Practical Notes</p>
+          <h2>其他<em>實用提醒</em></h2>
+          <p class="lead">這些不是最華麗的部分，但會決定你那幾天是順順看比賽，還是一直被小事卡住。</p>
+        </div>
+
+        <div class="tips-grid">
+          <article class="tip-card">
+            <h3 class="tip-title">網路</h3>
+            <p class="tip-text">eSIM 最方便，備用方案可在機場買 SIM 或租 Wi-Fi。電子票與交通查詢都依賴網路，建議不要只靠飯店 Wi-Fi。</p>
+          </article>
+
+          <article class="tip-card">
+            <h3 class="tip-title">付款</h3>
+            <p class="tip-text">日本多數地方可刷卡，但小店與交通儲值仍建議準備現金。到機場或 7-Eleven ATM 提款很實用。</p>
+          </article>
+
+          <article class="tip-card">
+            <h3 class="tip-title">交通卡</h3>
+            <p class="tip-text">Suica、PASMO、Manaca 多數情境可互通。iPhone 可直接加入 Apple Wallet，Android 依機型支援而定。</p>
+          </article>
+
+          <article class="tip-card">
+            <h3 class="tip-title">天氣</h3>
+            <p class="tip-text">9 月底至 10 月初仍可能偏熱、潮濕，也可能遇雨。帶薄外套、摺疊傘或輕量雨衣。</p>
+          </article>
+
+          <article class="tip-card">
+            <h3 class="tip-title">語言</h3>
+            <p class="tip-text">官方頁有英文，但部分票務、餐廳與交通公告可能是日文。Google Translate 相機翻譯和 DeepL 都先裝好。</p>
+          </article>
+
+          <article class="tip-card">
+            <h3 class="tip-title">保險</h3>
+            <p class="tip-text">買含旅遊不便、海外醫療、班機延誤的旅平險。若機票或住宿較貴，保險很值得。</p>
+          </article>
+        </div>
+
+        <ul class="checklist">
+          <li>開賣前：完成應援 ID、付款卡片海外交易、官方網站帳密保存。</li>
+          <li>買票後：確認電子票、訂可對應日期的住宿與機票。</li>
+          <li>出發前：再次確認官方賽程、場館規範、入場時間與天氣。</li>
+          <li>觀賽日：提早抵達、不要帶大型行李、手機保持電量。</li>
+        </ul>
+
+        <div class="source-grid" style="margin-top:1.5rem">
+          <article class="source-card">
+            <h3 class="tip-title">官方售票資訊</h3>
+            <p class="tip-text"><a href="https://lp-ag.tickets-aichi-nagoya2026.org/index_en.html" target="_blank" rel="noreferrer">lp-ag.tickets-aichi-nagoya2026.org</a></p>
+          </article>
+          <article class="source-card">
+            <h3 class="tip-title">官方 Ticketing Guide</h3>
+            <p class="tip-text"><a href="https://www.aichi-nagoya2026.org/files/common/260219_ticketsales/ticketingguide_asia_en" target="_blank" rel="noreferrer">票價與場次 PDF</a></p>
+          </article>
+          <article class="source-card">
+            <h3 class="tip-title">官方賽事場館</h3>
+            <p class="tip-text"><a href="https://www.aichi-nagoya2026.org/en/tournament/competition/" target="_blank" rel="noreferrer">Sports Program and Venues</a></p>
+          </article>
+          <article class="source-card">
+            <h3 class="tip-title">官方售票公告</h3>
+            <p class="tip-text"><a href="https://www.aichi-nagoya2026.org/news/detail/1310" target="_blank" rel="noreferrer">2026/05/28 一般販售公告</a></p>
+          </article>
+          <article class="source-card">
+            <h3 class="tip-title">Aichi Sky Expo</h3>
+            <p class="tip-text"><a href="https://www.aichiskyexpo.com/en/" target="_blank" rel="noreferrer">場館官方網站</a></p>
+          </article>
+          <article class="source-card">
+            <h3 class="tip-title">圖片來源</h3>
+            <p class="tip-text"><a href="https://commons.wikimedia.org/wiki/File:AICHI_SKY_EXPO.jpg" target="_blank" rel="noreferrer">Wikimedia Commons</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>2026 名古屋亞運英雄聯盟觀賽攻略</strong></p>
+    <p>資訊更新日期：2026/06/01。票券、賽程、座位、入場規範以官方最新公告為準。</p>
+  </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = document.querySelectorAll(".panel");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+
+        tabButtons.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-selected", "false");
+        });
+
+        panels.forEach((panel) => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        button.setAttribute("aria-selected", "true");
+        document.getElementById(`panel-${target}`).classList.add("active");
+        button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        document.querySelector(".nav-wrap").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    document.querySelectorAll(".day-card").forEach((card) => {
+      card.querySelector(".day-header").addEventListener("click", () => {
+        card.classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>

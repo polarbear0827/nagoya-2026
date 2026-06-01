@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026 愛知名古屋亞運英雄聯盟四人觀賽旅行控制台，包含行程、購票、地圖、代墊結算、備忘錄、日文小抄與緊急資訊。">
+  <title>2026 名古屋亞運 LoL 四人旅行控制台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#overview" data-tab-link="overview" aria-label="回到總覽">
+        <span class="brand-mark">N26</span>
+        <span>
+          <strong>名古屋亞運 LoL</strong>
+          <small>四人旅行控制台</small>
+        </span>
+      </a>
+      <div class="top-actions">
+        <div class="sync-pill" id="syncStatus" aria-live="polite">
+          <span class="sync-dot"></span>
+          <span id="syncText">初始化中</span>
+        </div>
+        <button class="icon-btn" id="themeToggle" type="button" title="切換亮暗模式" aria-label="切換亮暗模式">
+          <i data-lucide="sun-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero panel-band" id="hero">
+      <div class="hero-copy">
+        <p class="kicker">Aichi Nagoya 2026 · League of Legends</p>
+        <h1>把亞運觀賽、旅費與四人分工，收進同一個頁面。</h1>
+        <p>目標是 2026/10/02 09:00 的 LoL 場次 ELS12。這個頁面可以看行程、開地圖、記代墊、離線備援、同步給四個人。</p>
+        <div class="hero-actions">
+          <button class="primary-btn" type="button" data-tab-link="tools">
+            <i data-lucide="receipt-text"></i>
+            開始記代墊
+          </button>
+          <button class="ghost-btn" type="button" data-tab-link="itinerary">
+            <i data-lucide="map"></i>
+            看五天四夜
+          </button>
+        </div>
+      </div>
+      <div class="hero-dashboard">
+        <div class="quick-card accent">
+          <span>LoL 場次</span>
+          <strong>2026/10/02 09:00</strong>
+          <small>Aichi Sky Expo Hall D · ELS12</small>
+        </div>
+        <div class="mini-grid">
+          <div class="quick-card">
+            <span>一般販售</span>
+            <strong>06/30 17:00</strong>
+          </div>
+          <div class="quick-card">
+            <span>旅程代碼</span>
+            <strong>ASIA-GAME-2026</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="主功能">
+      <button class="tab-btn active" type="button" data-tab="overview"><i data-lucide="layout-dashboard"></i>總覽</button>
+      <button class="tab-btn" type="button" data-tab="dates"><i data-lucide="calendar-days"></i>重要日期</button>
+      <button class="tab-btn" type="button" data-tab="tickets"><i data-lucide="ticket"></i>購票攻略</button>
+      <button class="tab-btn" type="button" data-tab="itinerary"><i data-lucide="route"></i>五天四夜</button>
+      <button class="tab-btn" type="button" data-tab="travel"><i data-lucide="plane"></i>機票住宿</button>
+      <button class="tab-btn" type="button" data-tab="venue"><i data-lucide="map-pin"></i>場館交通</button>
+      <button class="tab-btn" type="button" data-tab="tools"><i data-lucide="calculator"></i>旅行工具</button>
+      <button class="tab-btn" type="button" data-tab="memo"><i data-lucide="list-checks"></i>備忘錄</button>
+      <button class="tab-btn" type="button" data-tab="safety"><i data-lucide="shield-alert"></i>日文/緊急</button>
+    </nav>
+
+    <main>
+      <section class="tab-panel active" id="panel-overview">
+        <div class="section-head">
+          <p class="kicker">Overview</p>
+          <h2>今日打開就先看這裡</h2>
+          <p>四人身份、同步狀態、觀賽日快查、代墊結算摘要都放在總覽。</p>
+        </div>
+
+        <div class="overview-grid">
+          <article class="card identity-card">
+            <div class="card-label">旅程身份</div>
+            <h3>選擇你是誰</h3>
+            <p class="muted">新增代墊時會自動帶入付款人；資料會存到本機，下次不用重選。</p>
+            <label class="field">
+              <span>旅程代碼</span>
+              <input id="tripCodeInput" type="text" value="ASIA-GAME-2026" autocomplete="off" readonly>
+            </label>
+            <div class="member-picker" id="memberPicker"></div>
+          </article>
+
+          <article class="card match-card">
+            <div class="card-label">觀賽日快查</div>
+            <h3>League of Legends · ELS12</h3>
+            <dl class="info-list">
+              <div><dt>日期</dt><dd>2026/10/02</dd></div>
+              <div><dt>時間</dt><dd>09:00</dd></div>
+              <div><dt>場館</dt><dd><a data-place-link="skyExpo" href="#" target="_blank" rel="noreferrer">Aichi Sky Expo Hall D</a></dd></div>
+              <div><dt>票價</dt><dd>A 區 ¥12,000 · B 區 ¥9,000</dd></div>
+            </dl>
+            <div class="button-row">
+              <a class="ghost-btn" data-map-route="lolDay" href="#" target="_blank" rel="noreferrer"><i data-lucide="map"></i>開觀賽日路線</a>
+              <button class="ghost-btn" type="button" data-tab-link="tickets"><i data-lucide="ticket"></i>購票攻略</button>
+            </div>
+          </article>
+
+          <article class="card countdown-card">
+            <div class="card-label">倒數</div>
+            <div class="countdown" id="countdown">計算中</div>
+            <p class="muted">以日本時間 2026/10/02 09:00 計算。</p>
+          </article>
+
+          <article class="card settlement-summary">
+            <div class="card-label">旅費摘要</div>
+            <div class="summary-numbers">
+              <div><span>總支出</span><strong id="totalExpense">NT$0</strong></div>
+              <div><span>紀錄筆數</span><strong id="expenseCount">0</strong></div>
+            </div>
+            <div id="balanceSummary" class="balance-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-dates">
+        <div class="section-head">
+          <p class="kicker">Timeline</p>
+          <h2>重要日期與風險控管</h2>
+          <p>目前資訊以 2026/06/01 查到的官方資料整理；最後仍以官方公告為準。</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item"><time>2026/06/30 17:00</time><div><h3>全競技一般販售開始</h3><p>先到先得。開賣前登入、準備信用卡、搜尋 League of Legends 或 ELS12。</p></div></article>
+          <article class="timeline-item"><time>2026/09/19-10/04</time><div><h3>愛知名古屋亞運賽期</h3><p>如果只為 LoL 出發，建議把旅程集中在 10/02 前後。</p></div></article>
+          <article class="timeline-item"><time>2026/10/02 09:00</time><div><h3>LoL Elimination Stage</h3><p>Aichi Sky Expo Hall D，票碼 ELS12。A 區 ¥12,000，B 區 ¥9,000。</p></div></article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-tickets">
+        <div class="section-head">
+          <p class="kicker">Ticket Strategy</p>
+          <h2>LoL 購票攻略</h2>
+          <p>重點是把步驟前置，開賣當天只做買票這件事。</p>
+        </div>
+        <div class="step-grid">
+          <article class="step-card"><span>01</span><h3>註冊應援 ID</h3><p>官方售票網站購票需要應援 ID，先完成 Email 註冊。</p></article>
+          <article class="step-card"><span>02</span><h3>鎖定 ELS12</h3><p>League of Legends · 2026/10/02 09:00 · Aichi Sky Expo Hall D。</p></article>
+          <article class="step-card"><span>03</span><h3>A 區優先，B 區備援</h3><p>若 A 區售罄，立刻改 B 區，不要在座位頁猶豫。</p></article>
+          <article class="step-card"><span>04</span><h3>兩張卡備援</h3><p>開啟海外交易與 3D Secure，避免驗證失敗。</p></article>
+        </div>
+        <div class="source-row">
+          <a class="source-chip" href="https://lp-ag.tickets-aichi-nagoya2026.org/index_en.html" target="_blank" rel="noreferrer">官方售票資訊</a>
+          <a class="source-chip" href="https://www.aichi-nagoya2026.org/files/common/260219_ticketsales/ticketingguide_asia_en" target="_blank" rel="noreferrer">Ticketing Guide</a>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-itinerary">
+        <div class="section-head">
+          <p class="kicker">5D4N Itinerary</p>
+          <h2>五天四夜行程</h2>
+          <p>日期未完全固定前，以 D4 為 LoL 觀賽日設計；確認飯店後可把地圖出發點換成飯店。</p>
+        </div>
+        <div class="itinerary" id="itineraryList"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-travel">
+        <div class="section-head">
+          <p class="kicker">Flights and Hotels</p>
+          <h2>機票住宿推薦</h2>
+          <p>先訂可免費取消住宿，LoL 票確認後再鎖機票與不可退房價。</p>
+        </div>
+        <div class="rec-grid">
+          <article class="card rec-card featured"><div class="card-label">首選航線</div><h3>台北 TPE 直飛名古屋 NGO</h3><p>直飛降低轉機變數，觀賽日前一天抵達也比較安心。</p><strong>NT$12,000-20,000 / 人</strong></article>
+          <article class="card rec-card"><div class="card-label">最穩住宿</div><h3><a data-place-link="nagoyaStation" href="#" target="_blank" rel="noreferrer">名古屋站周邊</a></h3><p>名鐵、JR、地鐵都方便，四人集合不容易迷路。</p><strong>¥18,000-45,000 / 晚</strong></article>
+          <article class="card rec-card"><div class="card-label">生活機能</div><h3><a data-place-link="sakae" href="#" target="_blank" rel="noreferrer">榮 / 伏見</a></h3><p>餐廳、購物、夜間活動多，適合多住幾晚。</p><strong>¥14,000-32,000 / 晚</strong></article>
+          <article class="card rec-card"><div class="card-label">觀賽優先</div><h3><a data-place-link="centrair" href="#" target="_blank" rel="noreferrer">Centrair 機場周邊</a></h3><p>離 Aichi Sky Expo 最近，LoL 前一晚可考慮。</p><strong>¥9,000-24,000 / 晚</strong></article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-venue">
+        <div class="section-head">
+          <p class="kicker">Venue and Access</p>
+          <h2>場館交通</h2>
+          <p>Aichi Sky Expo 位於中部國際機場島上，從名古屋市區搭名鐵到機場，再步行至場館。</p>
+        </div>
+        <div class="venue-layout">
+          <figure class="venue-photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/AICHI%20SKY%20EXPO.jpg?width=1400" alt="Aichi Sky Expo 外觀">
+            <figcaption>Image: Wikimedia Commons</figcaption>
+          </figure>
+          <div class="card">
+            <h3>Aichi Sky Expo Hall D</h3>
+            <p>觀賽日建議提前 90-120 分鐘抵達，安檢、人潮、找入口都需要時間。</p>
+            <div class="stat-grid">
+              <div><strong>Hall D</strong><span>電競場館</span></div>
+              <div><strong>09:00</strong><span>LoL 開賽</span></div>
+              <div><strong>名鐵</strong><span>前往機場</span></div>
+              <div><strong>步行</strong><span>機場至場館</span></div>
+            </div>
+            <div class="button-row">
+              <a class="primary-btn" data-place-link="skyExpo" href="#" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>開場館地圖</a>
+              <a class="ghost-btn" data-map-route="lolDay" href="#" target="_blank" rel="noreferrer"><i data-lucide="route"></i>開觀賽日路線</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-tools">
+        <div class="section-head">
+          <p class="kicker">Travel Tools</p>
+          <h2>換算、預算與代墊結算</h2>
+          <p>這裡是旅行中最常用的工作區。Firebase 正常時四人同步，離線時先本地暫存。</p>
+        </div>
+        <div class="tool-tabs" role="tablist">
+          <button class="tool-tab active" type="button" data-tool="calculator">匯率換算</button>
+          <button class="tool-tab" type="button" data-tool="budget">預算估算</button>
+          <button class="tool-tab" type="button" data-tool="expenses">代墊結算</button>
+        </div>
+
+        <div class="tool-panel active" id="tool-calculator">
+          <div class="tool-grid">
+            <article class="card">
+              <h3>日幣 ↔ 台幣換算</h3>
+              <label class="field"><span>匯率：1 JPY = TWD</span><input id="rateInput" type="number" step="0.001" min="0" value="0.21"></label>
+              <div class="exchange-grid">
+                <label class="field"><span>JPY</span><input id="jpyInput" type="number" min="0" value="12000"></label>
+                <label class="field"><span>TWD</span><input id="twdInput" type="number" min="0"></label>
+              </div>
+              <div class="quick-amounts" id="quickAmounts"></div>
+            </article>
+            <article class="card result-card">
+              <div class="card-label">四人估算</div>
+              <strong id="calcPerPerson">每人 NT$0</strong>
+              <span id="calcFourPeople">四人合計 NT$0</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="tool-panel" id="tool-budget">
+          <div class="card">
+            <h3>四人預算估算</h3>
+            <div class="budget-grid" id="budgetGrid"></div>
+            <div class="budget-total">
+              <span>每人預估</span><strong id="budgetPerPerson">NT$0</strong>
+              <span>四人合計</span><strong id="budgetTotal">NT$0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-panel" id="tool-expenses">
+          <div class="expense-layout">
+            <form class="card expense-form" id="expenseForm">
+              <h3 id="expenseFormTitle">新增代墊</h3>
+              <input id="editingExpenseId" type="hidden">
+              <label class="field"><span>項目</span><input id="expenseTitle" type="text" required placeholder="例如：住宿、晚餐、名鐵車票"></label>
+              <div class="form-grid">
+                <label class="field"><span>金額</span><input id="expenseAmount" type="number" min="0" step="1" required></label>
+                <label class="field"><span>幣別</span><select id="expenseCurrency"><option value="JPY">JPY</option><option value="TWD">TWD</option></select></label>
+              </div>
+              <div class="form-grid">
+                <label class="field"><span>誰先付</span><select id="expensePayer"></select></label>
+                <label class="field"><span>分類</span><select id="expenseCategory"><option>住宿</option><option>交通</option><option>門票</option><option>餐費</option><option>購物</option><option>保險</option><option>其他</option></select></label>
+              </div>
+              <fieldset class="split-box">
+                <legend>誰要分攤</legend>
+                <div id="splitMembers"></div>
+              </fieldset>
+              <label class="field"><span>備註</span><textarea id="expenseNote" rows="3" placeholder="例如：朋友 A 沒吃這餐、收據在 LINE 相簿"></textarea></label>
+              <div class="button-row">
+                <button class="primary-btn" type="submit"><i data-lucide="save"></i>儲存支出</button>
+                <button class="ghost-btn" id="cancelEditExpense" type="button">取消編輯</button>
+              </div>
+            </form>
+
+            <div class="expense-side">
+              <article class="card">
+                <div class="card-label">最少轉帳清單</div>
+                <div id="settlementList" class="settlement-list"></div>
+              </article>
+              <article class="card">
+                <div class="card-label">支出紀錄</div>
+                <div class="button-row">
+                  <button class="ghost-btn" id="exportDataBtn" type="button"><i data-lucide="download"></i>匯出 JSON</button>
+                  <label class="ghost-btn file-btn"><i data-lucide="upload"></i>匯入 JSON<input id="importDataInput" type="file" accept="application/json"></label>
+                </div>
+                <div id="expenseList" class="expense-list"></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-memo">
+        <div class="section-head">
+          <p class="kicker">Checklist</p>
+          <h2>出國備忘錄與四人分工</h2>
+          <p>Checklist 會存在本機；若之後要同步 checklist，也可以再接 Firebase。</p>
+        </div>
+        <div class="memo-grid">
+          <article class="card">
+            <div class="progress-head"><h3>準備進度</h3><strong id="checkProgress">0 / 0</strong></div>
+            <div class="progress-bar"><span id="checkProgressBar"></span></div>
+            <div id="checklistRoot" class="checklist-root"></div>
+          </article>
+          <article class="card">
+            <h3>四人分工</h3>
+            <div id="rolesList" class="roles-list"></div>
+            <label class="field"><span>飯店地址</span><input id="hotelInfo" type="text" placeholder="確定住宿後填入"></label>
+            <label class="field"><span>旅平險電話</span><input id="insuranceInfo" type="text" placeholder="出發前填入"></label>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-safety">
+        <div class="section-head">
+          <p class="kicker">Japanese and Emergency</p>
+          <h2>日文小抄與緊急資訊</h2>
+          <p>離線時也要能查。所有內容都寫在前端，不依賴外部服務。</p>
+        </div>
+        <div class="safety-grid">
+          <article class="card emergency-card">
+            <div class="card-label">緊急資訊</div>
+            <h3>日本緊急電話</h3>
+            <div class="emergency-numbers">
+              <a href="tel:110"><strong>110</strong><span>警察</span></a>
+              <a href="tel:119"><strong>119</strong><span>消防 / 救護</span></a>
+            </div>
+            <p>護照遺失：先報警取得證明，再聯絡台灣駐日單位。信用卡遺失請立即掛失。</p>
+          </article>
+          <article class="card">
+            <h3>自填緊急資料</h3>
+            <div id="emergencySavedInfo" class="saved-info"></div>
+            <button class="ghost-btn" type="button" data-tab-link="memo"><i data-lucide="edit-3"></i>去備忘錄填寫</button>
+          </article>
+        </div>
+        <div id="phraseList" class="phrase-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="expenseTemplate">
+    <article class="expense-item">
+      <div>
+        <h4></h4>
+        <p></p>
+      </div>
+      <div class="expense-actions">
+        <button class="icon-btn edit-expense" type="button" title="編輯"><i data-lucide="pencil"></i></button>
+        <button class="icon-btn delete-expense" type="button" title="刪除"><i data-lucide="trash-2"></i></button>
+      </div>
+    </article>
+  </template>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
